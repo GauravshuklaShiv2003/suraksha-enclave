@@ -14,7 +14,10 @@ export default function Hero({ start }) {
   const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
 
   const state = start ? 'visible' : 'hidden';
-  const words = BRAND.headline.split(' ');
+  
+  // Replaced BRAND.headline with the new text
+  const headlineText = "Invest where the paperwork is already done, and the growth is just beginning";
+  const words = headlineText.split(' ');
 
   return (
     <section id="top" ref={ref} className="relative flex min-h-[100svh] items-end overflow-hidden">
@@ -55,7 +58,7 @@ export default function Hero({ start }) {
           initial="hidden"
           animate={state}
           className="max-w-5xl text-[2.6rem] leading-[1.02] text-ivory sm:text-6xl md:text-7xl lg:text-[5.6rem]"
-          aria-label={BRAND.headline}
+          aria-label={headlineText}
         >
           {words.map((w, i) => (
             <span key={i} className="mr-[0.22em] inline-block overflow-hidden pb-[0.08em] align-bottom">
@@ -73,7 +76,7 @@ export default function Hero({ start }) {
           animate={state}
           className="mt-8 max-w-xl text-lg leading-relaxed text-ivory/70 md:text-xl"
         >
-          {BRAND.subline} A 14-acre gated enclave on the Tappal–Aligarh Highway, inside the Jewar Airport influence zone.
+          {BRAND.subline} Government-approved · 14-acre gated township on NH-334D · 2 min to Tappal–Bajna · 4 min to Yamuna Expressway · 10 min to Aligarh Defence Corridor · 14 min to Noida international airport.
         </motion.p>
 
         <motion.div
