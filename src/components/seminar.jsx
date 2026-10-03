@@ -2,15 +2,16 @@ import { useState } from 'react';
 import { X, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import Reveal from './Reveal';
 
+// Gallery photos list (Make sure your converted 5th photo is named seminar5.JPG)
 const PHOTOS = [
-  { src: '/images/seminar/seminar-1.jpg', caption: 'Meerut Investment Summit' },
-  { src: '/images/seminar/seminar-2.jpg', caption: 'Meerut Investment Summit' },
-  { src: '/images/seminar/seminar-3.jpg', caption: 'Meerut Investment Summit' },
-  { src: '/images/seminar/seminar-4.jpg', caption: 'Meerut Investment Summit' },
-  { src: '/images/seminar/seminar-5.jpg', caption: 'Meerut Investment Summit' },
-  { src: '/images/seminar/seminar-6.jpg', caption: 'Meerut Investment Summit' },
-  { src: '/images/seminar/seminar-7.jpg', caption: 'Meerut Investment Summit' },
-  { src: '/images/seminar/seminar-8.jpg', caption: 'Meerut Investment Summit' },
+  { src: '/images/seminar1.JPG', caption: 'Meerut Investment Summit' },
+  { src: '/images/Seminar2.jpg', caption: 'Meerut Investment Summit' },
+  { src: '/images/seminar3.JPG', caption: 'Meerut Investment Summit' },
+  { src: '/images/seminar4.JPG', caption: 'Meerut Investment Summit' },
+  { src: '/images/seminar5.JPG', caption: 'Meerut Investment Summit' }, // Extension updated here
+  { src: '/images/seminar6.JPG', caption: 'Meerut Investment Summit' },
+  { src: '/images/seminar7.JPG', caption: 'Meerut Investment Summit' },
+  { src: '/images/seminar8.JPG', caption: 'Meerut Investment Summit' },
 ];
 
 export default function Seminar() {
@@ -57,15 +58,23 @@ export default function Seminar() {
 
         <div className="se-feature">
           <Reveal className="se-story">
-            <p>As part of Suraksha Enclave's ongoing outreach across the Yamuna Expressway growth corridor, we hosted an investment summit in Meerut on September 20, 2026...</p>
-            <p>The doctors, businessmen and channel partners who attended the summit were walked through the region's infrastructure roadmap under the YEIDA Master Plan 2041...</p>
-            <p>Events like this are part of a sustained effort by Suraksha Enclave to build direct, informed relationships with investors...</p>
+            <p>As part of Suraksha Enclave's ongoing outreach across the Yamuna Expressway growth corridor, we hosted an investment summit in Meerut on September 20, 2026, bringing together local doctors, businessmen, and channel partners to discuss the opportunity at Suraksha Enclave, Jattari. The project sits on the access road into the YEIDA-notified corridor linking Jewar International Airport to the upcoming Tappal–Bajna industrial and logistics hub — a stretch that has already seen the airport become operational and an 8,000-hectare industrial corridor approved by YEIDA, with sectors allotted to companies across electronics, medical devices, and film production.</p>
+            <p>The doctors, businessmen and channel partners who attended the summit were walked through the region's infrastructure roadmap under the YEIDA Master Plan 2041, the government-approved layout and bank-loan eligibility at Suraksha Enclave, and the broader investment case for entering a growth corridor early rather than after prices have already moved. Discussions also touched on connectivity — NH-334D frontage, proximity to the Tappal interchange, and direct access to the Yamuna Expressway — and what that means for long-term appreciation in the surrounding belt.</p>
+            <p>Events like this are part of a sustained effort by Suraksha Enclave to build direct, informed relationships with investors and partners across the districts feeding into this corridor — Aligarh, Meerut, Mathura, and beyond — rather than relying on one-off marketing alone.</p>
           </Reveal>
 
           <Reveal delay={0.2}>
             <figure className="se-hero-img">
-              <img src="/images/seminar/seminar-featured.jpg" alt="Attendees at the Meerut Investment Summit 2026" />
-              <figcaption>Meerut Investment Summit, 20 September 2026</figcaption>
+              {/* Premium Auto-playing Video Banner */}
+              <video 
+                src="/images/Suraksha_Enclave_Sparkle_Video_Compatible.mp4" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="w-full object-cover object-top"
+                style={{ aspectRatio: '4/5', display: 'block' }}
+              />
             </figure>
           </Reveal>
         </div>

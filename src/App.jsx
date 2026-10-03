@@ -11,6 +11,7 @@ import Gallery from './components/Gallery';
 import Connectivity from './components/Connectivity';
 import GrowthDrivers from './components/GrowthDrivers';
 import Investment from './components/Investment';
+import Seminar from './components/seminar'; // <-- Yahan import add kiya hai
 import Footer from './components/Footer';
 
 const PRELOAD_MS = 1500;
@@ -41,6 +42,7 @@ export default function App() {
             <Connectivity />
             <GrowthDrivers />
             <Investment />
+            <Seminar /> {/* <-- Yahan component ko render kiya hai */}
           </main>
           <Footer />
         </div>
