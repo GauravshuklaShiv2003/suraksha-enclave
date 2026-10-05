@@ -54,30 +54,31 @@ export const APPROVALS = [
   { icon: BadgeCheck, title: 'Approved layout', text: 'Layout plan approved by the competent authority.' },
 ];
 
+// HUMNE AMENITIES MEIN AAPKI 8 IMAGES LAGAYI HAIN
 export const AMENITIES = [
-  { icon: ShieldCheck, title: 'Gated & guarded', text: 'Single controlled entry with 24x7 security staff.', featured: false },
-  { icon: Video, title: 'CCTV surveillance', text: 'Camera coverage across entries, roads and common areas.' },
-  { icon: Zap, title: 'Underground electricity', text: 'Concealed cabling for safer streets and clean skylines.' },
-  { icon: Lightbulb, title: 'Street lighting', text: 'Well-lit avenues from dusk to dawn.' },
-  { icon: Droplets, title: 'Sewage & water', text: 'A dedicated sewage treatment plant and water management system.' },
-  { icon: Route, title: 'Wide roads', text: 'Generous carriageways planned for easy movement.' },
-  { icon: Trees, title: 'Parks & green space', text: 'Ample open lawns and tree-lined walks.' },
-  { icon: Landmark, title: 'Temple', text: 'A serene temple space reserved within the enclave.' },
+  { icon: ShieldCheck, title: 'Gated & guarded', text: 'Single controlled entry with 24x7 security staff.', img: '/images/gated community.png', featured: false },
+  { icon: Video, title: 'CCTV surveillance', text: 'Camera coverage across entries, roads and common areas.', img: '/images/cctv entrance.png' },
+  { icon: Zap, title: 'Underground electricity', text: 'Concealed cabling for safer streets and clean skylines.', img: '/images/electricity.png' },
+  { icon: Lightbulb, title: 'Street lighting', text: 'Well-lit avenues from dusk to dawn.', img: '/images/street light.jpg' },
+  { icon: Droplets, title: 'Sewage & water', text: 'A dedicated sewage treatment plant and water management system.', img: '/images/sewage water.png' },
+  { icon: Route, title: 'Wide roads', text: 'Generous carriageways planned for easy movement.', img: '/images/wide roads.png' },
+  { icon: Trees, title: 'Parks & green space', text: 'Ample open lawns and tree-lined walks.', img: '/images/park.png' },
+  { icon: Landmark, title: 'Temple', text: 'A serene temple space reserved within the enclave.', img: '/images/Golden Temple Courtyard at Sunset.png' },
   {
     icon: Sparkles,
     title: 'Club Henggsha',
     text: 'Space reserved for the enclave’s own clubhouse: a place to gather, unwind and celebrate.',
+    img: '/images/cubhouse.mp4', 
     featured: true,
   },
 ];
 
-// Replace these with real renders / site photos in /public/images
+// YAHI WAHI SECTION HAI JISME GRAND ENTRANCE AATA HAI. MAINE ISKO VIDEOS SE REPLACE KAR DIYA HAI.
 export const GALLERY = [
-  { src: '/images/gallery-1.jpg', title: 'Grand entrance', caption: 'A guarded gateway that sets the tone.' },
-  { src: '/images/gallery-2.jpg', title: 'Tree-lined avenues', caption: 'Wide roads with underground utilities.' },
-  { src: '/images/gallery-3.jpg', title: 'Club Henggsha', caption: 'The social heart of the enclave.' },
-  { src: '/images/gallery-4.jpg', title: 'Central greens', caption: 'Parks planned into every phase.' },
-  { src: '/images/gallery-5.jpg', title: 'Temple precinct', caption: 'A quiet place for reflection.' },
+  { src: '/images/entrance of jattari vid.mp4', title: 'Grand entrance', caption: 'A guarded gateway that sets the tone.', type: 'video' },
+  { src: '/images/tree avenue.mp4', title: 'Tree-lined avenues', caption: 'Wide, serene roads surrounded by lush greenery.', type: 'video' },
+  { src: '/images/cubhouse.mp4', title: 'Luxury Clubhouse', caption: 'Premium lifestyle with exclusive amenities and pools.', type: 'video' },
+  { src: '/images/central park.mp4', title: 'Central greens', caption: 'Beautifully landscaped gardens with classic fountains.', type: 'video' }
 ];
 
 export const CONNECTIVITY = [

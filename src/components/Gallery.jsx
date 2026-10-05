@@ -7,7 +7,7 @@ import { GALLERY } from '../data/content';
 import { SPRING_SLIDE } from '../lib/motion';
 import { useUISound } from '../hooks/useUISound';
 
-const GAP = 24;
+const GAP = 16; // Mobile ke liye gap thoda compact kiya hai
 
 export default function Gallery() {
   const viewportRef = useRef(null);
@@ -16,7 +16,8 @@ export default function Gallery() {
   const x = useMotionValue(0);
   const { playSlide, playHover } = useUISound();
 
-  const slideW = vw < 768 ? vw * 0.84 : Math.min(vw * 0.62, 880);
+  // Mobile par slide width ko badhaya hai taaki screen par proper fit ho
+  const slideW = vw < 768 ? vw * 0.88 : Math.min(vw * 0.62, 880);
   const offset = (vw - slideW) / 2;
   const targetFor = useCallback((i) => offset - i * (slideW + GAP), [offset, slideW]);
 
@@ -65,18 +66,18 @@ export default function Gallery() {
   };
 
   const arrowCls =
-    'glass flex h-12 w-12 items-center justify-center rounded-full text-gold-200 transition hover:border-gold-400/60 disabled:opacity-30';
+    'glass flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full text-gold-200 transition hover:border-gold-400/60 disabled:opacity-30';
 
   return (
-    <section className="py-24 md:py-32" aria-roledescription="carousel" aria-label="Project gallery">
-      <div className="mx-auto flex max-w-site flex-wrap items-end justify-between gap-6 px-6 md:px-10">
+    <section className="py-16 md:py-32" aria-roledescription="carousel" aria-label="Project gallery">
+      <div className="mx-auto flex max-w-site flex-wrap items-end justify-between gap-4 px-6 md:px-10">
         <SectionHeading kicker="A walk through" title="Picture the everyday here." />
-        <Reveal className="mb-14 flex gap-3 md:mb-20">
-          <button type="button" className={arrowCls} onClick={() => go(-1)} onMouseEnter={playHover} disabled={index === 0} aria-label="Previous image">
-            <ChevronLeft size={20} strokeWidth={1.5} />
+        <Reveal className="mb-8 md:mb-20 flex gap-3">
+          <button type="button" className={arrowCls} onClick={() => go(-1)} onMouseEnter={playHover} disabled={index === 0} aria-label="Previous video">
+            <ChevronLeft size={18} strokeWidth={1.5} />
           </button>
-          <button type="button" className={arrowCls} onClick={() => go(1)} onMouseEnter={playHover} disabled={index === GALLERY.length - 1} aria-label="Next image">
-            <ChevronRight size={20} strokeWidth={1.5} />
+          <button type="button" className={arrowCls} onClick={() => go(1)} onMouseEnter={playHover} disabled={index === GALLERY.length - 1} aria-label="Next video">
+            <ChevronRight size={18} strokeWidth={1.5} />
           </button>
         </Reveal>
       </div>
@@ -105,28 +106,34 @@ export default function Gallery() {
                   key={s.src}
                   className="relative shrink-0 select-none"
                   style={{ width: slideW }}
-                  animate={{ scale: active ? 1 : 0.9, opacity: active ? 1 : 0.4 }}
+                  animate={{ scale: active ? 1 : 0.95, opacity: active ? 1 : 0.5 }}
                   transition={SPRING_SLIDE}
                   aria-label={`${i + 1} of ${GALLERY.length}: ${s.title}`}
                   onClick={() => goTo(i)}
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-[26px] border border-gold-500/15">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center"
-                      style={{
-                        backgroundImage: `url('${s.src}'), linear-gradient(135deg, #132754, #07122B)`,
-                      }}
-                      role="img"
-                      aria-label={s.title}
+                  {/* Mobile par aspect ratio 4/3 ya min-h set kiya hai taaki video achhi dikhe */}
+                  <div className="relative aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-[22px] md:rounded-[26px] border border-gold-500/15">
+                    
+                    {/* CINEMATIC VIDEO BACKGROUND */}
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="absolute inset-0 h-full w-full object-cover"
+                      src={s.src}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/10 to-transparent" />
+
+                    {/* Gradient Overlay for Readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-950/30 to-transparent" />
+                    
                     <motion.div
-                      className="absolute bottom-0 left-0 p-6 md:p-10"
-                      animate={{ opacity: active ? 1 : 0, y: active ? 0 : 20 }}
-                      transition={{ duration: 0.6, delay: active ? 0.2 : 0 }}
+                      className="absolute bottom-0 left-0 p-5 md:p-10"
+                      animate={{ opacity: active ? 1 : 0, y: active ? 0 : 15 }}
+                      transition={{ duration: 0.5, delay: active ? 0.1 : 0 }}
                     >
-                      <h3 className="text-3xl text-ivory md:text-4xl">{s.title}</h3>
-                      <p className="mt-2 text-ivory/65">{s.caption}</p>
+                      <h3 className="text-2xl md:text-4xl text-ivory font-display">{s.title}</h3>
+                      <p className="mt-1.5 md:mt-2 text-sm md:text-base text-ivory/75">{s.caption}</p>
                     </motion.div>
                   </div>
                 </motion.li>
@@ -137,7 +144,7 @@ export default function Gallery() {
       </Reveal>
 
       {/* Progress rail */}
-      <div className="mx-auto mt-10 flex max-w-site items-center gap-2 px-6 md:px-10" role="tablist">
+      <div className="mx-auto mt-8 md:mt-10 flex max-w-site items-center gap-2 px-6 md:px-10" role="tablist">
         {GALLERY.map((s, i) => (
           <button
             key={s.src}
@@ -146,7 +153,7 @@ export default function Gallery() {
             aria-selected={i === index}
             aria-label={`Show ${s.title}`}
             onClick={() => goTo(i)}
-            className="relative h-8 flex-1"
+            className="relative h-6 md:h-8 flex-1"
           >
             <span className="absolute inset-x-0 top-1/2 h-px bg-white/15" />
             {i === index && (
